@@ -29,7 +29,8 @@ type EchoOptions struct {
 var echoOptions EchoOptions
 
 var program = cli.Program{
-    Name: "example",
+    Name:        "example",
+    Description: "Example is a program demonstrating how to use the cli package.",
     Commands: []cli.Command{
         {
             Name:             "echo",
@@ -54,7 +55,6 @@ var program = cli.Program{
     },
 }
 
-
 func main() { program.RunAndExit() }
 
 ```
@@ -62,13 +62,17 @@ func main() { program.RunAndExit() }
 If run with no arguments:
 
     $ ./example
-    Usage: example command [options]
+    Example is a program demonstrating how to use the cli package.
 
-    Available commands:
+    Usage:
+
+        example command [options]
+
+    The commands are:
 
         echo       echo the provided text
 
-    Use "example help [command]" for more Information about that command.
+    Use "example help [command]" for more Information about a command.
 
 Help for a particular sub-command:
 

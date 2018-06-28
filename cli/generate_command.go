@@ -92,7 +92,8 @@ import (
 )
 
 var program = cli.Program{
-    Name:     "{{.Name}}",
+    Name:        "{{.Name}}",
+    Description: "",
     Commands: []cli.Command{ {{range .CommandNames}}
         {{.}}Command,
 {{- end}}

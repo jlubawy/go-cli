@@ -7,7 +7,8 @@ import (
 )
 
 var program = cli.Program{
-    Name:     "example",
+    Name:        "example",
+    Description: "",
     Commands: []cli.Command{ 
         echoCommand,
     },

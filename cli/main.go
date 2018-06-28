@@ -9,7 +9,8 @@ import (
 )
 
 var program = cli.Program{
-	Name: "cli",
+	Name:        "cli",
+	Description: "Cli is a tool for creating new command-line interface (CLI) programs.",
 	Commands: []cli.Command{
 		generateCommand,
 	},

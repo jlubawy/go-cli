@@ -20,8 +20,9 @@ import (
 // A Program is named command-line program with a collection of supported
 // sub-commands.
 type Program struct {
-	Name     string    // name of the programs
-	Commands []Command // supported commands
+	Name        string    // name of the programs
+	Description string    // description of the program
+	Commands    []Command // supported commands
 }
 
 // A Command is a sub-command supported by a given program.
@@ -144,14 +145,18 @@ func Templ(t *template.Template, data interface{}) {
 	}
 }
 
-var programUsageTempl = template.Must(template.New("").Parse(`Usage: {{$.Program.Name}} command [options]
+var programUsageTempl = template.Must(template.New("").Parse(`{{$.Program.Description}}
 
-Available commands:
+Usage:
+
+    {{$.Program.Name}} command [options]
+
+The commands are:
 {{range $.Program.Commands}}
     {{printf "%-10s %s" .Name .ShortDescription}}
 {{- end}}
 
-Use "{{$.Program.Name}} help [command]" for more Information about that command.
+Use "{{$.Program.Name}} help [command]" for more Information about a command.
 `))
 
 var commandUsageTempl = template.Must(template.New("").Parse(`Usage: {{$.Program.Name}} {{$.Command.Name}} {{$.Command.ShortUsage}}
