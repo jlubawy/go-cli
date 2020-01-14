@@ -99,3 +99,15 @@ func Example_run() {
 	// Output:
 	// Some prefix: Some random text
 }
+
+func Example_unknownCommand() {
+	cli.Writer = os.Stdout
+	args := []string{
+		"example",
+		"notacommand",
+	}
+	program.Run(args)
+
+	// Output: example: unknown command "notacommand"
+	// Run 'example help' for usage.
+}

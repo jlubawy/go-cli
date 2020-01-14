@@ -102,7 +102,7 @@ func (prog *Program) Run(args []string) (code int) {
 
 	Infof(`%s: unknown command "%s"
 Run '%s help' for usage.
-`, prog.Name, fs.Arg(1), prog.Name)
+`, prog.Name, fs.Arg(0), prog.Name)
 
 	return
 }
